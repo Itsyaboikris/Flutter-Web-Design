@@ -9,70 +9,73 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(),
+    return Container(
+      margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 0.0,
+          leading: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CircleAvatar(),
+          ),
+          title: Text("Welcome User"),
+          actions: <Widget>[
+            Center(
+              child: FlatButton(
+                onPressed: () {},
+                child: Text("Module 1"),
+              ),
+            ),
+            Center(
+              child: FlatButton(
+                onPressed: () {},
+                child: Text('Sign Out'),
+              ),
+            )
+          ],
         ),
-        title: Text("Welcome User"),
-        actions: <Widget>[
-          Center(
-            child: FlatButton(
-              onPressed: () {},
-              child: Text("Module 1"),
+        body: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[ImageCarousel()],
             ),
-          ),
-          Center(
-            child: FlatButton(
-              onPressed: () {},
-              child: Text('Sign Out'),
+            Container(
+              height: MediaQuery.of(context).size.height / 2.3,
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Container(
+                    margin: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20),
+                    color: Colors.red,
+                    child: Column(
+                      children: <Widget>[Text("one")],
+                    ),
+                  )),
+                  Expanded(
+                      child: Container(
+                    margin: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20),
+                    color: Colors.blue,
+                    child: Column(
+                      children: <Widget>[Text('two')],
+                    ),
+                  )),
+                  Expanded(
+                      child: Container(
+                    margin: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20),
+                    color: Colors.yellow,
+                    child: Column(
+                      children: <Widget>[Text('three')],
+                    ),
+                  )),
+                ],
+              ),
             ),
-          )
-        ],
-      ),
-      body: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[ImageCarousel()],
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height / 2.3,
-            width: MediaQuery.of(context).size.width,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                    child: Container(
-                  margin: EdgeInsets.all(20),
-                  padding: EdgeInsets.all(20),
-                  color: Colors.red,
-                  child: Column(
-                    children: <Widget>[Text("one")],
-                  ),
-                )),
-                Expanded(
-                    child: Container(
-                  margin: EdgeInsets.all(20),
-                  padding: EdgeInsets.all(10),
-                  color: Colors.blue,
-                  child: Column(
-                    children: <Widget>[Text('two')],
-                  ),
-                )),
-                Expanded(
-                    child: Container(
-                  margin: EdgeInsets.all(20),
-                  padding: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Column(
-                    children: <Widget>[Text('three')],
-                  ),
-                )),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -83,7 +86,7 @@ class ImageCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 2,
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.of(context).size.shortestSide * 1.85,
       child: Carousel(
         images: [
           new NetworkImage(
