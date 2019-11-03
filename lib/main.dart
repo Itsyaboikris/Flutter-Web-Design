@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:github_code/screens/homepage/homePage.dart';
 import 'package:github_code/utils/transations.dart';
 
-void main() => runApp(MaterialApp(home: MyApp()));
+void main() => runApp(MaterialApp(
+  theme: ThemeData(
+    primaryColor: Colors.white,
+    accentColor: Colors.black,
+  ),
+  home: MyApp()));
 
 class MyApp extends StatefulWidget {
   @override
